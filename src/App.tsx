@@ -1,11 +1,14 @@
 import React from 'react';
+import { LoginScreen } from 'screens/login';
 
-import { ProjectListScreen } from 'screens/project-list';
-
+// import { ProjectListScreen } from 'screens/project-list';
+// import { TsReactTest } from './Practice/try-use-arry';
 function App() {
   return (
     <div className="App">
-      <ProjectListScreen />
+      <LoginScreen></LoginScreen>
+      {/* <ProjectListScreen /> */}
+      {/* <TsReactTest /> */}
     </div>
   );
 }
