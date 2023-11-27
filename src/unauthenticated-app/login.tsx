@@ -1,8 +1,10 @@
-import { useAuth } from 'context/auth-context';
 import React, { FormEvent } from 'react';
-const apiUrl = process.env.REACT_APP_API_URL;
+import { useAuth } from 'context/auth-context';
+import { Form } from 'antd';
+import Input from 'antd/es/input';
+
 export const LoginScreen = () => {
-  const { login, user } = useAuth();
+  const { login } = useAuth();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -13,18 +15,16 @@ export const LoginScreen = () => {
     login({ username, password });
   };
   return (
-    <form onSubmit={handleSubmit}>
-      {user ? <div>登录成功,用户名{user?.name}</div> : null}
-
-      <div>
+    <Form onFinish={handleSubmit}>
+      <Form.Item>
         <label htmlFor="username">用户名</label>
-        <input type="text" id={'username'}></input>
-      </div>
-      <div>
+        <Input type="text" id={'username'}></Input>
+      </Form.Item>
+      <Form.Item>
         <label htmlFor="password">密码</label>
         <input type="password" id={'password'}></input>
-      </div>
-      <button type="submit">注册</button>
-    </form>
+      </Form.Item>
+      <button type="submit">登录</button>
+    </Form>
   );
 };
