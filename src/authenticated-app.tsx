@@ -1,6 +1,7 @@
 import React from 'react';
 // import { ProjectListScreen } from 'screens/project-list';
 import { useAuth } from 'context/auth-context';
+import { ProjectListScreen } from 'screens/project-list';
 
 const AuthenticatedApp = () => {
   const { logout } = useAuth();
@@ -8,6 +9,7 @@ const AuthenticatedApp = () => {
     <div>
       <button onClick={logout}>登出</button>
       登录成功
+      <ProjectListScreen></ProjectListScreen>
     </div>
   );
 };
